@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const autoPrefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 require('babel-polyfill');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -34,13 +35,13 @@ module.exports = {
         },
     },
     output: {
-      filename: '[name].bundle.js',
-      publicPath: '/',
-      path: path.resolve(__dirname, '.')
+        filename: '[name].bundle.js',
+        publicPath: '/',
+        path: path.resolve(__dirname, '.')
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: [/node_modules/], use: ['ng-annotate-loader', 'babel-loader'] },
+            { test: /\.js$/, exclude: [/node_modules/], use: [{ loader: 'ng-annotate-loader', options: { es6: true } }, 'babel-loader'] },
             {
                 test: /\.html$/,
                 use: [
@@ -120,6 +121,27 @@ module.exports = {
             return chunk.modules.map(m => path.relative(m.context, m.request)).join("_");
         }),
         new webpack.NamedModulesPlugin(),
+        new BrowserSyncPlugin(
+            // BrowserSync options
+            {
+                // browse to http://localhost:3000/ during development
+                host: 'localhost',
+                port: 3000,
+                // proxy the Webpack Dev Server endpoint
+                // (which should be serving on http://localhost:3100/)
+                // through BrowserSync
+                proxy: {
+                    ws: true,
+                    target: 'http://localhost:3100/'
+                }
+            },
+            // plugin options
+            {
+                // prevent BrowserSync from reloading the page
+                // and let Webpack Dev Server take care of this
+                reload: false
+            }
+        ),
         new webpack.HotModuleReplacementPlugin()
     ]
 };
