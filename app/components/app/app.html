@@ -1,1 +1,13 @@
-<span>{{ $ctrl.appName }}</span>
+<md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="$ctrl.currentPage" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-click="$ctrl.goto('page1')" name="page1">
+            Page One
+        </md-nav-item>
+        <md-nav-item md-nav-click="$ctrl.goto('page2')" name="page2">
+            Page Two
+        </md-nav-item>
+    </md-nav-bar>
+    <div>
+        <span>{{ $ctrl.currentPage }}</span>`.
+    </div>
+</md-content>

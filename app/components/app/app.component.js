@@ -1,7 +1,11 @@
 import tpl from './app.html';
+import './app.less';
 class ctrl {
-    constructor() {
-        this.appName = 'Data V'
+    $onInit(){
+        this.goto('page1');
+    }
+    goto(page) {
+        this.currentPage = page;
     }
 }
 
