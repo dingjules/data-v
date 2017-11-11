@@ -8,6 +8,7 @@
         </md-nav-item>
     </md-nav-bar>
     <div>
-        <span>{{ $ctrl.currentPage }}</span>`.
+        <canvas class="chart chart-line" chart-data="$ctrl.data" chart-labels="$ctrl.labels" 
+        chart-series="$ctrl.series" chart-click="$ctrl.onClick"></canvas> 
     </div>
 </md-content>
