@@ -2,7 +2,6 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const webpack           = require('webpack');
 const path              = require('path');
 const configuration     = require('./webpack.config');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 Object.assign(configuration.plugins[0].options.templateVariables, {
   debug: true
