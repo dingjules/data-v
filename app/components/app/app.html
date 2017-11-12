@@ -7,25 +7,25 @@
 
     <div ng-switch on="$ctrl.currentPage">
         <div ng-switch-when="audience">
-            <time-chart data="$ctrl.audience"></time-chart>
+            <time-chart data="$ctrl.audience" title='Audience'></time-chart>
         </div>
         <div ng-switch-when="bandwidth">
-            <time-chart data="$ctrl.bandwidth"></time-chart>
+            <time-chart data="$ctrl.bandwidth" title='CDN & P2P bandwidth'></time-chart>
         </div>
         <div ng-switch-when="usage">
-            <time-chart data="$ctrl.usage"></time-chart>
+            <time-chart data="$ctrl.usage" title='CDN & P2P usage'></time-chart>
         </div>
         <div ng-switch-when="country">
-            <category-chart data="$ctrl.country"></category-chart>
+            <category-chart data="$ctrl.country" title='Country'></category-chart>
         </div>
         <div ng-switch-when="isp">
-            <category-chart data="$ctrl.isp"></category-chart>
+            <category-chart data="$ctrl.isp" title='ISP'></category-chart>
         </div>
         <div ng-switch-when="platform">
-            <category-chart data="$ctrl.platform"></category-chart>
+            <category-chart data="$ctrl.platform" title='Platform'></category-chart>
         </div>
         <div ng-switch-when="streams">
-            <category-chart data="$ctrl.streams"></category-chart>
+            <category-chart data="$ctrl.streams" title='Stream'></category-chart>
         </div>
         <div ng-switch-default></div>
     </div>
