@@ -14,5 +14,17 @@ export const PAGES = [
     {
         title: 'Country',
         value: 'country'
+    },
+    {
+        title: 'Isp',
+        value: 'isp'
+    },
+    {
+        title: 'Platform',
+        value: 'platform'
+    },
+    {
+        title: 'Streams',
+        value: 'streams'
     }
 ];

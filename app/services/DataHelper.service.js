@@ -60,8 +60,8 @@ export const DataHelperService = () => {
         getBandwidth = () => formateTimeRelatedData(bandwidth),
         getCountry = () => formatData(country, 'country'),
         getIsp = () => formatData(isp, 'isp'),
-        getPlatform = () => formatData(platform, 'plateform'),
-        getStreams = () => formatData(streams, streams),
+        getPlatform = () => formatData(platform, 'platform'),
+        getStreams = () => formatData(streams, 'manifest'),
         getUsage = () => formateTimeRelatedData(usage);
 
     return {

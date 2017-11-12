@@ -14,16 +14,12 @@ export const TIME_CHART_TYPES = [
 ];
 export const CATEGORY_CHART_TYPES = [
     {
-        title: 'Linear',
-        value: 'line'
-    },
-    {
-        title: 'Scatter',
-        value: 'scatter'
-    },
-    {
         title: 'Bar',
         value: 'bar'
+    },
+    {
+        title: 'Horizontal Bar',
+        value: 'horizontalBar'
     },
     {
         title: 'Radar',
@@ -36,13 +32,5 @@ export const CATEGORY_CHART_TYPES = [
     {
         title: 'Doughnut',
         value: 'doughnut'
-    },
-    {
-        title: 'Polar Area',
-        value: 'polarArea'
-    },
-    {
-        title: 'Bubble',
-        value: 'bubble'
     }
 ];

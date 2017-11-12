@@ -1,5 +1,5 @@
 import tpl from './time-chart.html';
-import { TIME_CHART_TYPES } from '../../chart/chart.constant';
+import { TIME_CHART_TYPES } from '../chart.constant';
 
 class ctrl {
     $onInit() {

@@ -1,5 +1,5 @@
 import tpl from './category-chart.html';
-import { CATEGORY_CHART_TYPES } from '../../chart/chart.constant';
+import { CATEGORY_CHART_TYPES } from '../chart.constant';
 
 class ctrl {
     $onInit() {

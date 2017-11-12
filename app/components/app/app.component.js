@@ -16,6 +16,9 @@ class ctrl {
         this.bandwidth = this._DataHelper.getBandwidth();
         this.usage = this._DataHelper.getUsage();
         this.country = this._DataHelper.getCountry();
+        this.isp = this._DataHelper.getIsp();
+        this.platform = this._DataHelper.getPlatform();
+        this.streams = this._DataHelper.getStreams();
     }
 
     goto(page) {

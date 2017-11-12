@@ -18,6 +18,15 @@
         <div ng-switch-when="country">
             <category-chart data="$ctrl.country"></category-chart>
         </div>
+        <div ng-switch-when="isp">
+            <category-chart data="$ctrl.isp"></category-chart>
+        </div>
+        <div ng-switch-when="platform">
+            <category-chart data="$ctrl.platform"></category-chart>
+        </div>
+        <div ng-switch-when="streams">
+            <category-chart data="$ctrl.streams"></category-chart>
+        </div>
         <div ng-switch-default></div>
     </div>
 </md-content>
