@@ -1,21 +1,44 @@
 <md-content class="md-padding">
     <md-nav-bar md-selected-nav-item="$ctrl.currentPage" nav-bar-aria-label="navigation links">
-        <md-nav-item md-nav-click="$ctrl.goto('page1')" name="page1">
-            Page One
-        </md-nav-item>
-        <md-nav-item md-nav-click="$ctrl.goto('page2')" name="page2">
-            Page Two
+        <md-nav-item ng-repeat="page in $ctrl.pages" md-nav-click="$ctrl.goto(page.value)" name="{{ page.value }}">
+            {{ page.title }}
         </md-nav-item>
     </md-nav-bar>
-    <div>
-        <md-input-container>
-            <label>Graph Type</label>
-            <md-select ng-model="$ctrl.graphType">
-                <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
-                    {{ type.title }}
-                </md-option>
-            </md-select>
-        </md-input-container>
-        <chart data="$ctrl.audience" options="$ctrl.options" type="$ctrl.graphType"></chart>
+
+    <div ng-switch on="$ctrl.currentPage">
+        <div ng-switch-when="audience">
+            <md-input-container>
+                <label>Graph Type</label>
+                <md-select ng-model="$ctrl.graphType">
+                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+                        {{ type.title }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <chart data="$ctrl.audience" options="$ctrl.options" type="$ctrl.graphType"></chart>
+        </div>
+        <div ng-switch-when="bandwidth">
+            <md-input-container>
+                <label>Graph Type</label>
+                <md-select ng-model="$ctrl.graphType">
+                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+                        {{ type.title }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <chart data="$ctrl.bandwidth" options="$ctrl.options" type="$ctrl.graphType"></chart>
+        </div>
+        <div ng-switch-when="usage">
+                <md-input-container>
+                    <label>Graph Type</label>
+                    <md-select ng-model="$ctrl.graphType">
+                        <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+                            {{ type.title }}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <chart data="$ctrl.usage" options="$ctrl.options" type="$ctrl.graphType"></chart>
+            </div>
+        <div ng-switch-default></div>
     </div>
 </md-content>

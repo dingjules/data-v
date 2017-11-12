@@ -7,27 +7,36 @@ import streams from '../data/streams.json';
 import usage from '../data/usage.json';
 export const DataHelperService = () => {
     'ngInject';
-    
+
     const formateData = data => {
         const res = [];
-        data.map(item => {
-            res.push({
-                x: item[0],
-                y: item[1]
+        Object.keys(data).forEach(key => {
+            const dataSet = [];
+            data[key].map(item => {
+                dataSet.push({
+                    x: item[0],
+                    y: item[1]
+                });
             });
+            res.push(
+                {
+                    label: key,
+                    data: dataSet
+                }
+            );
         });
         return res;
     };
-    
-    const 
-        getAudience = () => formateData(audience.audience),
-        getBandwidth = () => bandwidth,
+
+    const
+        getAudience = () => formateData(audience),
+        getBandwidth = () => formateData(bandwidth),
         getCountry = () => country,
         getIsp = () => isp,
         getPlatform = () => platform,
         getStreams = () => streams,
-        getUsage = () => usage;
-   
+        getUsage = () => formateData(usage);
+
     return {
         getAudience,
         getBandwidth,

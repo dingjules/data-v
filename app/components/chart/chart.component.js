@@ -12,19 +12,9 @@ class ctrl {
         this.chart = new Chart(this._ctx, {
             type: this.type,
             data: {
-                datasets: [{
-                    label: 'Scatter Dataset',
-                    data: this.data
-                }]
+                datasets: this.data
             },
-            options: {
-                scales: {
-                    xAxes: [{
-                        type: 'time',
-                        position: 'bottom'
-                    }]
-                }
-            }
+            options: this.options
         });
     }
 
@@ -34,23 +24,12 @@ class ctrl {
             this.chart = new Chart(this._ctx, {
                 type: this.type,
                 data: {
-                    datasets: [{
-                        label: 'Scatter Dataset',
-                        data: this.data
-                    }]
+                    datasets: this.data
                 },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            type: 'time',
-                            position: 'bottom'
-                        }]
-                    }
-                }
+                options: this.options
             });
         }
     }
-
 }
 
 export const chartComponent = {
