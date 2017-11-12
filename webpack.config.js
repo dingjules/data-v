@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const autoPrefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 require('babel-polyfill');
 
 const ENV = process.env.npm_lifecycle_event;
@@ -12,14 +11,12 @@ const isTest = (ENV === 'test' || ENV === 'test-watch');
 const entries = ['babel-polyfill'];
 
 const templateVariables = {
-    serverUrl: 'http://localhost:8080',
     baseHref: '',
     debug: false
 };
 
 if (!isTest) {
     entries.push(path.resolve(__dirname, 'app', './app.js'));
-    entries.push('webpack-dev-server/client?http://0.0.0.0:3000');
 }
 
 module.exports = {
@@ -33,11 +30,6 @@ module.exports = {
         stats: {
             colors: true,
         },
-    },
-    output: {
-        filename: '[name].bundle.js',
-        publicPath: '/',
-        path: path.resolve(__dirname, '.')
     },
     module: {
         rules: [
@@ -102,46 +94,6 @@ module.exports = {
         // extract inline css into separate 'styles.css'
         new ExtractTextPlugin({ filename: 'styles.css', allChunks: true }),
 
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks: function (module) {
-                if (module.resource && (/^.*\.(css)$/).test(module.resource)) {
-                    return false;
-                }
-                return module.context && module.context.indexOf("node_modules") !== -1;
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'runtime'
-        }),
-        new webpack.NamedChunksPlugin((chunk) => {
-            if (chunk.name) {
-                return chunk.name;
-            }
-            return chunk.modules.map(m => path.relative(m.context, m.request)).join("_");
-        }),
-        new webpack.NamedModulesPlugin(),
-        new BrowserSyncPlugin(
-            // BrowserSync options
-            {
-                // browse to http://localhost:3000/ during development
-                host: 'localhost',
-                port: 3000,
-                // proxy the Webpack Dev Server endpoint
-                // (which should be serving on http://localhost:3100/)
-                // through BrowserSync
-                proxy: {
-                    ws: true,
-                    target: 'http://localhost:3100/'
-                }
-            },
-            // plugin options
-            {
-                // prevent BrowserSync from reloading the page
-                // and let Webpack Dev Server take care of this
-                reload: false
-            }
-        ),
-        new webpack.HotModuleReplacementPlugin()
+        
     ]
 };

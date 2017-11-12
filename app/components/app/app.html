@@ -29,16 +29,27 @@
             <chart data="$ctrl.bandwidth" options="$ctrl.options" type="$ctrl.graphType"></chart>
         </div>
         <div ng-switch-when="usage">
-                <md-input-container>
-                    <label>Graph Type</label>
-                    <md-select ng-model="$ctrl.graphType">
-                        <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
-                            {{ type.title }}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-                <chart data="$ctrl.usage" options="$ctrl.options" type="$ctrl.graphType"></chart>
-            </div>
+            <md-input-container>
+                <label>Graph Type</label>
+                <md-select ng-model="$ctrl.graphType">
+                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+                        {{ type.title }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <chart data="$ctrl.usage" options="$ctrl.options" type="$ctrl.graphType"></chart>
+        </div>
+        <div ng-switch-when="country">
+            <md-input-container>
+                <label>Graph Type</label>
+                <md-select ng-model="$ctrl.graphType">
+                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+                        {{ type.title }}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <chart data="$ctrl.country" options="$ctrl.options" type="$ctrl.graphType"></chart>
+        </div>
         <div ng-switch-default></div>
     </div>
 </md-content>

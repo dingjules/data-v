@@ -10,5 +10,9 @@ export const PAGES = [
     {
         title: 'Usage',
         value: 'usage'
+    },
+    {
+        title: 'Country',
+        value: 'country'
     }
 ];

@@ -1,6 +1,7 @@
 import tpl from './app.html';
 import './app.less';
 import { PAGES } from './app.constant';
+import { CHART_TYPES } from '../chart/chart.constant';
 
 class ctrl {
     constructor(DataHelper) {
@@ -13,23 +14,11 @@ class ctrl {
     $onInit() {
         this.goto(PAGES[0].value);
         this.graphType = 'line';
-        this.graphTypes = [
-            {
-                title: 'Linear',
-                value: 'line'
-            },
-            {
-                title: 'Scatter',
-                value: 'scatter'
-            },
-            {
-                title: 'Bar',
-                value: 'bar'
-            }
-        ];
+        this.graphTypes = CHART_TYPES;
         this.audience = this._DataHelper.getAudience();
         this.bandwidth = this._DataHelper.getBandwidth();
         this.usage = this._DataHelper.getUsage();
+        this.country = this._DataHelper.getCountry();
         this.options = {
             scales: {
                 xAxes: [{

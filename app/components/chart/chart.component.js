@@ -11,9 +11,7 @@ class ctrl {
     $onInit(){
         this.chart = new Chart(this._ctx, {
             type: this.type,
-            data: {
-                datasets: this.data
-            },
+            data: this.data,
             options: this.options
         });
     }
@@ -23,9 +21,7 @@ class ctrl {
             this.chart.destroy();
             this.chart = new Chart(this._ctx, {
                 type: this.type,
-                data: {
-                    datasets: this.data
-                },
+                data: this.data,
                 options: this.options
             });
         }
