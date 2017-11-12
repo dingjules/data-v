@@ -7,48 +7,16 @@
 
     <div ng-switch on="$ctrl.currentPage">
         <div ng-switch-when="audience">
-            <md-input-container>
-                <label>Graph Type</label>
-                <md-select ng-model="$ctrl.graphType">
-                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
-                        {{ type.title }}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-            <chart data="$ctrl.audience" options="$ctrl.options" type="$ctrl.graphType"></chart>
+            <time-chart data="$ctrl.audience"></time-chart>
         </div>
         <div ng-switch-when="bandwidth">
-            <md-input-container>
-                <label>Graph Type</label>
-                <md-select ng-model="$ctrl.graphType">
-                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
-                        {{ type.title }}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-            <chart data="$ctrl.bandwidth" options="$ctrl.options" type="$ctrl.graphType"></chart>
+            <time-chart data="$ctrl.bandwidth"></time-chart>
         </div>
         <div ng-switch-when="usage">
-            <md-input-container>
-                <label>Graph Type</label>
-                <md-select ng-model="$ctrl.graphType">
-                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
-                        {{ type.title }}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-            <chart data="$ctrl.usage" options="$ctrl.options" type="$ctrl.graphType"></chart>
+            <time-chart data="$ctrl.usage"></time-chart>
         </div>
         <div ng-switch-when="country">
-            <md-input-container>
-                <label>Graph Type</label>
-                <md-select ng-model="$ctrl.graphType">
-                    <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
-                        {{ type.title }}
-                    </md-option>
-                </md-select>
-            </md-input-container>
-            <chart data="$ctrl.country" options="$ctrl.options" type="$ctrl.graphType"></chart>
+            <category-chart data="$ctrl.country"></category-chart>
         </div>
         <div ng-switch-default></div>
     </div>

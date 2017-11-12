@@ -1,0 +1,9 @@
+<md-input-container>
+    <label>Graph Type</label>
+    <md-select ng-model="$ctrl.graphType">
+        <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+            {{ type.title }}
+        </md-option>
+    </md-select>
+</md-input-container>
+<chart data="$ctrl.data" options="$ctrl.options" type="$ctrl.graphType"></chart>

@@ -1,4 +1,18 @@
-export const CHART_TYPES = [
+export const TIME_CHART_TYPES = [
+    {
+        title: 'Linear',
+        value: 'line'
+    },
+    {
+        title: 'Scatter',
+        value: 'scatter'
+    },
+    {
+        title: 'Bar',
+        value: 'bar'
+    }
+];
+export const CATEGORY_CHART_TYPES = [
     {
         title: 'Linear',
         value: 'line'
