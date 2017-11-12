@@ -21,6 +21,10 @@ class ctrl {
             {
                 title: 'Scatter',
                 value: 'scatter'
+            },
+            {
+                title: 'Bar',
+                value: 'bar'
             }
         ];
         this.audience = this._DataHelper.getAudience();
