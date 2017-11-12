@@ -8,7 +8,14 @@
         </md-nav-item>
     </md-nav-bar>
     <div>
-        <canvas class="chart chart-line" chart-data="$ctrl.data" chart-labels="$ctrl.labels" 
-        chart-series="$ctrl.series" chart-click="$ctrl.onClick"></canvas> 
+        <md-input-container>
+            <label>Graph Type</label>
+            <md-select ng-model="$ctrl.graphType">
+                <md-option ng-repeat="type in $ctrl.graphTypes" ng-value="type.value">
+                    {{ type.title }}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <chart data="$ctrl.audience" options="$ctrl.options" type="$ctrl.graphType"></chart>
     </div>
 </md-content>
