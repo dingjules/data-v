@@ -19,6 +19,7 @@ class ctrl {
         this.isp = this._DataHelper.getIsp();
         this.platform = this._DataHelper.getPlatform();
         this.streams = this._DataHelper.getStreams();
+        this.mix1 = this._DataHelper.getMix1();
     }
 
     goto(page) {

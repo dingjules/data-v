@@ -85,7 +85,7 @@ export const formatData = (data, labelKey, color) => {
 
 export const DataHelperService = () => {
     'ngInject';
-
+    
     const
         getAudience = () => formateTimeRelatedData(audience),
         getBandwidth = () => formateTimeRelatedData(bandwidth),
@@ -93,7 +93,15 @@ export const DataHelperService = () => {
         getIsp = () => formatData(isp, 'isp'),
         getPlatform = () => formatData(platform, 'platform'),
         getStreams = () => formatData(streams, 'manifest'),
-        getUsage = () => formateTimeRelatedData(usage);
+        getUsage = () => formateTimeRelatedData(usage),
+        getMix1 = () => formateTimeRelatedData({
+            audience: audience.audience, 
+            cdn_bandwidth: bandwidth.cdn, 
+            p2p_bandwidth: bandwidth.p2p, 
+            cdn_usage: usage.cdn,
+            p2p_usage: usage.p2p,
+
+        });
 
     return {
         getAudience,
@@ -102,6 +110,7 @@ export const DataHelperService = () => {
         getIsp,
         getPlatform,
         getStreams,
-        getUsage
+        getUsage,
+        getMix1
     };
 };

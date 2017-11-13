@@ -27,6 +27,9 @@
         <div ng-switch-when="streams">
             <category-chart data="$ctrl.streams" title='Stream'></category-chart>
         </div>
+        <div ng-switch-when="mix1">
+            <time-chart data="$ctrl.mix1" title='mix1'></time-chart>
+        </div>
         <div ng-switch-default></div>
     </div>
 </md-content>
