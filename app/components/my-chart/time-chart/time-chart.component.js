@@ -18,7 +18,7 @@ class ctrl {
             },
             scales: {
                 xAxes: [{
-                    type: 'time',
+                    type: 'time'
                 }]
             }
         };

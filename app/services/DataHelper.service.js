@@ -11,6 +11,7 @@ import usage from '../data/usage.json';
 
 const getRandomColorSet = () => {
     const color = randomColor({
+        luminosity: 'dark',
         format: 'rgba',
         alpha: 1
     });
