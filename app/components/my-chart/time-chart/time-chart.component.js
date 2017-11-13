@@ -4,6 +4,7 @@ import { TIME_CHART_TYPES } from '../chart.constant';
 
 class ctrl {
     $onInit() {
+        this.sampleRate = 1;
         this.graphType = TIME_CHART_TYPES[0].value;
         this.graphTypes = TIME_CHART_TYPES;
         this.options = {

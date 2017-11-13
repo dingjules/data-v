@@ -6,4 +6,8 @@
         </md-option>
     </md-select>
 </md-input-container>
-<chart data="$ctrl.data" options="$ctrl.options" type="$ctrl.graphType"></chart>
+<md-input-container class="md-icon-float md-icon-right md-block">
+    <label>Sample Rate(Every x data)</label>
+    <input ng-model="$ctrl.sampleRate" type="number" step="1">
+</md-input-container>
+<chart data="$ctrl.data" options="$ctrl.options" type="$ctrl.graphType" sample-rate='$ctrl.sampleRate'></chart>
