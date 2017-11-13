@@ -9,23 +9,29 @@ import platform from '../data/platform.json';
 import streams from '../data/streams.json';
 import usage from '../data/usage.json';
 
-const getRandomColorSet = () => {
+const getRandomColorSet = (defaultColor) => {
+    if (defaultColor) {
+        return {
+            borderColor: defaultColor,
+            backgroundColor: Color(defaultColor).clearer(0.8).rgbString()
+        };
+    }
     const color = randomColor({
         luminosity: 'dark',
         format: 'rgba',
         alpha: 1
     });
     return {
-        boderColor: color,
+        borderColor: color,
         backgroundColor: Color(color).clearer(0.8).rgbString()
     };
 };
 
-export const formateTimeRelatedData = data => {
+export const formateTimeRelatedData = (data, color) => {
     const res = [];
     Object.keys(data).forEach(key => {
         const dataSet = [];
-        const colorSet = getRandomColorSet();
+        const colorSet = getRandomColorSet(color);
         data[key].map(item => {
             dataSet.push({
                 x: item[0],
@@ -44,7 +50,7 @@ export const formateTimeRelatedData = data => {
     return { datasets: res };
 };
 
-export const formatData = (data, labelKey) => {
+export const formatData = (data, labelKey, color) => {
     const res = {
         labels: [],
         datasets: [],
@@ -57,9 +63,9 @@ export const formatData = (data, labelKey) => {
             if (key !== labelKey) {
                 dataByCatgory[key] = dataByCatgory[key] || { data: [], backgroundColor: [], borderColor: [] };
                 dataByCatgory[key].data.push(item[key]);
-                const colorSet = getRandomColorSet();
+                const colorSet = getRandomColorSet(color);
                 dataByCatgory[key].backgroundColor.push(colorSet.backgroundColor);
-                dataByCatgory[key].borderColor.push(colorSet.boderColor);
+                dataByCatgory[key].borderColor.push(colorSet.borderColor);
             }
         });
     });

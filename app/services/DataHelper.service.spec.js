@@ -24,7 +24,7 @@ describe('Service: DataHelper', () => {
                 ]
             ]
         };
-        expect(formateTimeRelatedData(data)).toEqual({
+        expect(formateTimeRelatedData(data, '#000000')).toEqual({
             datasets: [
                 {
                     label: 'cdn',
@@ -35,7 +35,9 @@ describe('Service: DataHelper', () => {
                     {
                         x: 2,
                         y: 3
-                    }]
+                    }],
+                    backgroundColor: 'rgba(0, 0, 0, 0.19999999999999996)',
+                    borderColor: '#000000'
                 },
                 {
                     label: 'p2p',
@@ -46,7 +48,9 @@ describe('Service: DataHelper', () => {
                     {
                         x: 6,
                         y: 7
-                    }]
+                    }],
+                    backgroundColor: 'rgba(0, 0, 0, 0.19999999999999996)',
+                    borderColor: '#000000'
                 }
             ]
         });
@@ -68,26 +72,36 @@ describe('Service: DataHelper', () => {
             'country': 'GB'
         }];
 
-        expect(formatData(data, 'country')).toEqual({
+        expect(formatData(data, 'country', '#000000')).toEqual({
             labels: ['PL', 'GB'],
             datasets: [
                 {
                     label: 'cdn',
-                    data: [0, 2]
+                    data: [0, 2],
+                    backgroundColor: ['rgba(0, 0, 0, 0.19999999999999996)', 'rgba(0, 0, 0, 0.19999999999999996)'],
+                    borderColor: ['#000000', '#000000']
                 },
                 {
                     label: 'p2p',
-                    data: [1, 8]
+                    data: [1, 8],
+                    backgroundColor: ['rgba(0, 0, 0, 0.19999999999999996)', 'rgba(0, 0, 0, 0.19999999999999996)'],
+                    borderColor: ['#000000', '#000000']
                 },
                 {
                     label: 'total',
-                    data: [1, 10]
+                    data: [1, 10],
+                    backgroundColor: ['rgba(0, 0, 0, 0.19999999999999996)', 'rgba(0, 0, 0, 0.19999999999999996)'],
+                    borderColor: ['#000000', '#000000']
                 },
                 {
                     label: 'percentage',
-                    data: [71, 80]
+                    data: [71, 80],
+                    backgroundColor: ['rgba(0, 0, 0, 0.19999999999999996)', 'rgba(0, 0, 0, 0.19999999999999996)'],
+                    borderColor: ['#000000', '#000000']
                 }
-            ]
+            ],
+            backgroundColor: [],
+            borderColor: []
         });
     });
 });
